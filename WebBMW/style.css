@@ -1,0 +1,76 @@
+/* --- SHOWROOM VIRTUAL --- */
+        .showroom-section {
+            padding: 6rem 0;
+            background-color: var(--bg-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .car-display-container {
+            height: 450px;
+            background-color: #1a1a1c; /* Fondo oscuro base para simular la caja de luz */
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.4s ease;
+            position: relative;
+        }
+
+        .color-swatch {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: transform 0.2s ease, border 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.15);
+        }
+
+        .color-swatch.active {
+            border-color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        /* --- FICHAS TÉCNICAS --- */
+        .specs-panel {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+        }
+
+        .spec-box {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .spec-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .spec-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            line-height: 1.1;
+        }
+
+        .spec-label {
+            font-size: 0.8rem;
+            color: var(--accent-silver);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 992px) {
+            .car-display-container {
+                height: 300px;
+            }
+        }

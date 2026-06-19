@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bell Motors | Concesionario Exclusivo BMW</title>
+    
+    <!-- Etiquetas Open Graph para Redes Sociales y WhatsApp -->
+    <meta property="og:title" content="Bell Motors | Concesionario Exclusivo BMW">
+    <meta property="og:description" content="Descubrí una experiencia digital a la altura de la ingeniería BMW de alta gama. Catálogo, Showroom Virtual y Post-Venta oficial en City Bell.">
+    <meta property="og:image" content="https://www.bellmotors.com/img/agencia.jpg">
+    <meta property="og:url" content="https://www.bellmotors.com">
+    <meta property="og:type" content="website">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-darker: #050505;
+            --text-light: #f5f5f7;
+            --accent-silver: #8e8e93;
+            --bmw-blue: #008AC9;
+            --bmw-dark-blue: #002B5E;
+            --bmw-red: #F11A22;
+            --bmw-white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- HEADER TRANSPARENTE PREMIUM --- */
+        .navbar-premium {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1030;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .navbar-brand img {
+            height: 80px; 
+            object-fit: contain;
+            filter: brightness(1);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link-premium {
+            color: var(--text-light) !important;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.5rem 1.2rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link-premium::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--bmw-blue), var(--bmw-white), var(--bmw-red));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link-premium:hover::after {
+            width: 70%;
+        }
+
+        .btn-cta-header {
+            border: 1px solid var(--text-light);
+            color: var(--text-light);
+            background: transparent;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.6rem 1.5rem;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-cta-header:hover {
+            background: var(--text-light);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- HERO SECTION CON VIDEO DE FONDO --- */
+        .hero-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.85) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: calc(1.8rem + 2.5vw);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: calc(1rem + 0.4vw);
+            font-weight: 300;
+            color: var(--accent-silver);
+            margin-bottom: 2.5rem;
+            letter-spacing: 1px;
+            line-height: 1.6;
+        }
+
+        .btn-hero-primary {
+            background: var(--text-light);
+            color: var(--bg-dark);
+            border: 1px solid var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 1rem 2.5rem;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-hero-primary:hover {
+            background: transparent;
+            color: var(--text-light);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- TRAYECTORIA --- */
+        .trayectoria-section {
+            padding: 6rem 0;
+            background-color: var(--bg-darker);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .trayectoria-img-box {
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            background: #111;
+        }
+
+        .trayectoria-img-box img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(110%);
+            transition: all 0.4s ease;
+        }
+
+        .trayectoria-img-box:hover img {
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        /* --- MODELOS / CATÁLOGO --- */
+        .modelos-section {
+            padding: 6rem 0;
+            background-color: var(--bg-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .model-card {
+            background: rgba(255,255,255,0.01);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* EFECTO BARRIDO M BMW */
+        .model-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 138, 201, 0.4), rgba(0, 43, 94, 0.4), rgba(241, 26, 34, 0.4), transparent);
+            transform: skewX(-25deg);
+            transition: left 0.8s ease;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .model-card:hover::after {
+            left: 150%;
+        }
+
+        .model-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.15); 
+            box-shadow: 0 10px 30px rgba(0, 138, 201, 0.15);
+        }
+
+        .model-img-wrapper {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;
+            background-color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .model-img-wrapper img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .model-card:hover .model-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .model-info {
+            padding: 1.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            z-index: 10;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .model-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .model-tag {
+            font-size: 0.75rem;
+            color: var(--bmw-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* --- SHOWROOM VIRTUAL Y TABS --- */
+        .showroom-section {
+            padding: 6rem 0;
+            background-color: var(--bg-darker);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .showroom-tabs .nav-link {
+            color: var(--accent-silver);
+            border-radius: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            padding: 0.8rem 2rem;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+            background: transparent;
+        }
+
+        .showroom-tabs .nav-link.active, .showroom-tabs .nav-link:hover {
+            background-color: transparent;
+            color: var(--text-light);
+            border-bottom: 2px solid var(--bmw-blue);
+        }
+
+        .car-display-container {
+            height: 450px;
+            width: 100%;
+            background-color: #1a1a1c;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .car-display-container img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+        }
+
+        .color-swatch {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: transform 0.2s ease, border 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.15);
+        }
+
+        .color-swatch.active {
+            border-color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        /* --- FICHAS TÉCNICAS ALINEADAS --- */
+        .specs-panel {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .spec-box {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .spec-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .spec-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            line-height: 1.1;
+        }
+
+        .spec-label {
+            font-size: 0.8rem;
+            color: var(--accent-silver);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* --- M PERFORMANCE --- */
+        .m-performance-section {
+            background-color: var(--bg-dark);
+            padding: 6rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .m-performance-img-box {
+            height: 400px; 
+            width: 100%;
+            background: #111; 
+            border: 1px solid rgba(255,255,255,0.05); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .m-performance-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .m-performance-img-box:hover img {
+            transform: scale(1.03);
+        }
+
+        .btn-m-performance {
+            background: transparent;
+            color: var(--bmw-red);
+            border: 1px solid var(--bmw-red);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 1rem 2.5rem;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-m-performance:hover {
+            background: var(--bmw-red);
+            color: var(--text-light);
+            box-shadow: 0 0 20px rgba(241, 26, 34, 0.4);
+        }
+
+        /* --- POST-VENTA --- */
+        .postventa-section {
+            padding: 6rem 0;
+            background-color: var(--bg-darker);
+        }
+
+        .card-premium {
+            position: relative;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            height: 100%;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+            border-radius: 4px;
+        }
+
+        .card-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--bmw-blue) 0%, var(--bmw-blue) 40%, var(--bmw-white) 40%, var(--bmw-white) 60%, var(--bmw-red) 60%, var(--bmw-red) 100%);
+            transition: left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-premium:hover::before {
+            left: 0;
+        }
+
+        .card-premium:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 15px 30px rgba(0, 138, 201, 0.12), 0 5px 15px rgba(241, 26, 34, 0.08);
+        }
+
+        .card-premium-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 1.5rem;
+            background-color: #1a1a1c;
+            transition: opacity 0.3s ease;
+        }
+
+        /* --- CONTACTO --- */
+        .contacto-section {
+            padding: 6rem 0;
+            background-color: var(--bg-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-info-premium p {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-control-premium {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            border-radius: 0;
+            color: var(--text-light);
+            padding: 0.8rem 0;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-control-premium:focus {
+            background: transparent;
+            color: var(--text-light);
+            box-shadow: 0 5px 15px rgba(0, 138, 201, 0.1);
+            border-color: var(--bmw-blue);
+        }
+
+        .form-control-premium::placeholder {
+            color: rgba(255,255,255,0.4);
+            font-weight: 300;
+        }
+
+        .map-placeholder {
+            height: 100%;
+            min-height: 350px;
+            width: 100%;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        /* --- FOOTER --- */
+        .simple-footer {
+            background-color: #000;
+            padding: 4rem 0 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-logo {
+            height: 120px; 
+            object-fit: contain; 
+            margin-bottom: 1.5rem; 
+            opacity: 0.8; 
+            filter: brightness(1);
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            opacity: 1;
+        }
+
+        .social-icons-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-link {
+            color: var(--accent-silver);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--text-light);
+            transform: translateY(-3px);
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        /* --- BOTÓN FLOTANTE WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(20, 20, 22, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            z-index: 1050;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background: rgba(40, 40, 44, 0.95);
+            color: #FFF;
+            transform: scale(1.1);
+            border-color: rgba(255,255,255,0.3);
+            box-shadow: 0 0 20px rgba(0, 138, 201, 0.4);
+        }
+
+        /* AJUSTES RESPONSIVE */
+        @media (max-width: 992px) {
+            .car-display-container, .specs-panel {
+                height: auto;
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-collapse {
+                background: var(--bg-dark);
+                padding: 1.5rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                margin-top: 1rem;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+            .navbar-brand img {
+                height: 50px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-premium fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo.png" alt="Bell Motors Logo">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link nav-link-premium" href="#trayectoria">Trayectoria</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-premium" href="#modelos">Modelos</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-premium" href="#showroom-virtual">Showroom Virtual</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-premium" href="#m-performance">M Performance</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-premium" href="#postventa">Post-Venta</a></li>
+                </ul>
+                <div class="d-flex mt-3 mt-lg-0">
+                    <a href="#contacto" class="btn btn-cta-header w-100 text-center">Agendar Test Drive</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-container">
+        <video class="hero-video-bg" autoplay loop muted playsinline>
+            <source src="video/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">La Excelencia No Se Busca.<br>Se Conduce.</h1>
+            <p class="hero-subtitle">Descubrí una experiencia digital a la altura de la ingeniería BMW de alta gama.</p>
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                <a href="#modelos" class="btn btn-hero-primary m-0">Ver Catálogo</a>
+                <a href="#showroom-virtual" class="btn btn-hero-primary m-0" style="background: transparent; color: #fff;">Showroom Virtual</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAYECTORIA -->
+    <section id="trayectoria" class="trayectoria-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-6 mb-5 mb-lg-0 pe-lg-5">
+                    <h4 style="color: var(--accent-silver); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;">Bell Motors S.A.</h4>
+                    <h2 class="hero-title" style="font-size: 2.2rem; margin-bottom: 2rem;">Desde el primer día,<br>la mejor atención.</h2>
+                    <p style="color: var(--accent-silver); font-weight: 300; line-height: 1.8; margin-bottom: 1.5rem;">Bell Motors S.A. es una empresa familiar que fue creada en el año 1997 con el propósito de representar en forma exclusiva a la marca BMW en sur del Gran Buenos Aires.</p>
+                    <p style="color: var(--accent-silver); font-weight: 300; line-height: 1.8; margin-bottom: 1.5rem;">Luego de un exhaustivo análisis de nuestra carpeta, los representantes de BMW AG en Argentina coincidieron en otorgarnos la concesión de todos sus productos ya que lo que ellos buscaban era una familia sin antecedentes en el rubro automotor y con una conducta intachable en sus anteriores emprendimientos empresariales.</p>
+                    <p style="color: var(--text-light); font-weight: 400; margin-bottom: 1rem;">Nuestra relación con la marca de autos premium más valiosa del mundo se basó desde el comienzo en tres pilares fundamentales:</p>
+                    
+                    <ul style="color: var(--accent-silver); font-weight: 300; line-height: 1.8; margin-bottom: 1.5rem; list-style-type: none; padding-left: 0;">
+                        <li><span style="color: var(--bmw-blue); margin-right: 10px;">■</span> Atención personalizada de sus directores.</li>
+                        <li><span style="color: var(--text-light); margin-right: 10px;">■</span> Amplio stock permanente de autos y repuestos originales.</li>
+                        <li><span style="color: var(--bmw-red); margin-right: 10px;">■</span> Servicio Post-Venta con personal altamente calificado.</li>
+                    </ul>
+                    
+                    <p style="color: var(--accent-silver); font-weight: 300; line-height: 1.8; margin-bottom: 0;">Hacer foco en estos ítems en todos los niveles de la organización nos llevaron a ser en reiteradas oportunidades seleccionados como el Concesionario Oficial con mayor nivel de satisfacción al cliente en el país y a estar frecuentemente entre los mejores de Latinoamérica.</p>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="trayectoria-img-box">
+                        <img src="img/agencia.jpg" alt="Agencia Bell Motors BMW" onerror="this.style.display='none';">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODELOS / CATÁLOGO -->
+    <section id="modelos" class="modelos-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end gap-3">
+                    <div>
+                        <h2 class="hero-title" style="font-size: 2.2rem; margin-bottom: 0.5rem;">Catálogo Premium</h2>
+                        <p class="hero-subtitle mb-0">Explorá nuestra selección de vehículos 0KM y Usados Garantizados.</p>
+                    </div>
+                    <a href="#contacto" style="color: var(--accent-silver); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-bottom: 1px solid var(--accent-silver); padding-bottom: 2px;">Consultar Stock</a>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="model-card">
+                        <div class="model-img-wrapper">
+                            <img src="img/sedan.png" alt="BMW Serie 3 Sedán" onerror="this.style.display='none';">
+                        </div>
+                        <div class="model-info">
+                            <div class="model-tag">Nuevo</div>
+                            <h4 class="model-title">BMW Serie 3 Sedán</h4>
+                            <!-- Cambiado a "Ver Detalles" con función JS -->
+                            <a href="javascript:void(0)" onclick="goToShowroom('tab-sedan')" class="btn btn-hero-primary mt-3 w-100" style="padding: 0.6rem; font-size: 0.8rem; background: transparent; color: var(--text-light);">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="model-card">
+                        <div class="model-img-wrapper">
+                            <img src="img/x1.png" alt="BMW X1" onerror="this.style.display='none';">
+                        </div>
+                        <div class="model-info">
+                            <div class="model-tag">Lanzamiento</div>
+                            <h4 class="model-title">BMW X1 M Sport</h4>
+                            <!-- Cambiado a "Ver Detalles" con función JS -->
+                            <a href="javascript:void(0)" onclick="goToShowroom('tab-x1')" class="btn btn-hero-primary mt-3 w-100" style="padding: 0.6rem; font-size: 0.8rem; background: transparent; color: var(--text-light);">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="model-card">
+                        <div class="model-img-wrapper">
+                            <img src="img/serie1.png" alt="BMW Usado Premium" onerror="this.style.display='none';">
+                        </div>
+                        <div class="model-info">
+                            <div class="model-tag" style="color: var(--accent-silver);">Usado Premium</div>
+                            <h4 class="model-title">BMW Serie 1 118i</h4>
+                            <!-- Cambiado a "Ver Detalles" con función JS -->
+                            <a href="javascript:void(0)" onclick="goToShowroom('tab-serie1')" class="btn btn-hero-primary mt-3 w-100" style="padding: 0.6rem; font-size: 0.8rem; background: transparent; color: var(--text-light);">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWROOM VIRTUAL MULTI-PESTAÑA -->
+    <section id="showroom-virtual" class="showroom-section">
+        <div class="container">
+            <div class="row mb-4 text-center">
+                <div class="col-12">
+                    <h2 class="hero-title" style="font-size: 2.2rem;">Showroom Virtual</h2>
+                    <p class="hero-subtitle">Configurá tu próximo BMW. El placer de conducir, a tu medida.</p>
+                </div>
+            </div>
+
+            <!-- Navegación de Pestañas -->
+            <ul class="nav nav-pills justify-content-center mb-5 showroom-tabs" id="showroomTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-sedan" data-bs-toggle="pill" data-bs-target="#pane-sedan" type="button" role="tab">Serie 3 Sedán</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-x1" data-bs-toggle="pill" data-bs-target="#pane-x1" type="button" role="tab">X1 M Sport</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-serie1" data-bs-toggle="pill" data-bs-target="#pane-serie1" type="button" role="tab">Serie 1 118i</button>
+                </li>
+            </ul>
+
+            <!-- Contenido de Pestañas -->
+            <div class="tab-content" id="showroomTabsContent">
+                
+                <!-- PESTAÑA: SERIE 3 SEDÁN -->
+                <div class="tab-pane fade show active" id="pane-sedan" role="tabpanel" tabindex="0">
+                    <div class="row align-items-start">
+                        <div class="col-12 col-lg-8 mb-5 mb-lg-0">
+                            <div class="car-display-container mb-4" id="car-display-sedan">
+                                <img src="img/sedan.png" alt="BMW Serie 3 Sedán" onerror="this.style.display='none';">
+                            </div>
+                            <div class="d-flex justify-content-center gap-3">
+                                <div class="color-swatch active" style="background-color: #f5f5f7;" data-color="#1a1a1c" title="Alpine White" onclick="changeCarColor(this, 'car-display-sedan', 'color-name-sedan')"></div>
+                                <div class="color-swatch" style="background-color: #050505;" data-color="#0a0a0a" title="Black Sapphire" onclick="changeCarColor(this, 'car-display-sedan', 'color-name-sedan')"></div>
+                                <div class="color-swatch" style="background-color: #002b5e;" data-color="#001229" title="Phytonic Blue" onclick="changeCarColor(this, 'car-display-sedan', 'color-name-sedan')"></div>
+                                <div class="color-swatch" style="background-color: #7b001c;" data-color="#240008" title="Melbourne Red" onclick="changeCarColor(this, 'car-display-sedan', 'color-name-sedan')"></div>
+                            </div>
+                            <p class="text-center mt-3" style="font-size: 0.85rem; color: var(--accent-silver);" id="color-name-sedan">Color seleccionado: Alpine White</p>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="specs-panel">
+                                <h3 class="mb-4" style="font-weight: 600; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">Rendimiento 330i</h3>
+                                <div class="spec-box">
+                                    <div class="spec-value">258 <span style="font-size: 1rem; font-weight:400;">CV</span></div>
+                                    <div class="spec-label">Potencia Máxima</div>
+                                </div>
+                                <div class="spec-box">
+                                    <div class="spec-value">5.8 <span style="font-size: 1rem; font-weight:400;">s</span></div>
+                                    <div class="spec-label">Aceleración 0-100 km/h</div>
+                                </div>
+                                <div class="spec-box">
+                                    <div class="spec-value">400 <span style="font-size: 1rem; font-weight:400;">Nm</span></div>
+                                    <div class="spec-label">Torque Máximo</div>
+                                </div>
+                                <a href="#contacto" class="btn btn-hero-primary w-100 mt-auto" style="padding: 1rem; font-size: 0.85rem; text-align: center;">Solicitar Cotización</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PESTAÑA: X1 M SPORT -->
+                <div class="tab-pane fade" id="pane-x1" role="tabpanel" tabindex="0">
+                    <div class="row align-items-start">
+                        <div class="col-12 col-lg-8 mb-5 mb-lg-0">
+                            <div class="car-display-container mb-4" id="car-display-x1">
+                                <img src="img/x1.png" alt="BMW X1 M Sport" onerror="this.style.display='none';">
+                            </div>
+                            <div class="d-flex justify-content-center gap-3">
+                                <div class="color-swatch active" style="background-color: #f5f5f7;" data-color="#1a1a1c" title="Alpine White" onclick="changeCarColor(this, 'car-display-x1', 'color-name-x1')"></div>
+                                <div class="color-swatch" style="background-color: #050505;" data-color="#0a0a0a" title="Black Sapphire" onclick="changeCarColor(this, 'car-display-x1', 'color-name-x1')"></div>
+                                <div class="color-swatch" style="background-color: #002b5e;" data-color="#001229" title="Phytonic Blue" onclick="changeCarColor(this, 'car-display-x1', 'color-name-x1')"></div>
+                                <div class="color-swatch" style="background-color: #7b001c;" data-color="#240008" title="Melbourne Red" onclick="changeCarColor(this, 'car-display-x1', 'color-name-x1')"></div>
+                            </div>
+                            <p class="text-center mt-3" style="font-size: 0.85rem; color: var(--accent-silver);" id="color-name-x1">Color seleccionado: Alpine White</p>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="specs-panel">
+                                <h3 class="mb-4" style="font-weight: 600; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">Rendimiento sDrive20i</h3>
+                                <div class="spec-box">
+                                    <div class="spec-value">204 <span style="font-size: 1rem; font-weight:400;">CV</span></div>
+                                    <div class="spec-label">Potencia Máxima</div>
+                                </div>
+                                <div class="spec-box">
+                                    <div class="spec-value">7.6 <span style="font-size: 1rem; font-weight:400;">s</span></div>
+                                    <div class="spec-label">Aceleración 0-100 km/h</div>
+                                </div>
+                                <div class="spec-box">
+                                    <div class="spec-value">300 <span style="font-size: 1rem; font-weight:400;">Nm</span></div>
+                                    <div class="spec-label">Torque Máximo</div>
+                                </div>
+                                <a href="#contacto" class="btn btn-hero-primary w-100 mt-auto" style="padding: 1rem; font-size: 0.85rem; text-align: center;">Solicitar Cotización</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PESTAÑA: SERIE 1 -->
+                <div class="tab-pane fade" id="pane-serie1" role="tabpanel" tabindex="0">
+                    <div class="row align-items-start">
+                        <div class="col-12 col-lg-8 mb-5 mb-lg-0">
+                            <div class="car-display-container mb-4" id="car-display-serie1">
+                                <img src="img/serie1.png" alt="BMW Serie 1 118i" onerror="this.style.display='none';">
+                            </div>
+                            <div class="d-flex justify-content-center gap-3">
+                                <div class="color-swatch active" style="background-color: #f5f5f7;" data-color="#1a1a1c" title="Alpine White" onclick="changeCarColor(this, 'car-display-serie1', 'color-name-serie1')"></div>
+                                <div class="color-swatch" style="background-color: #050505;" data-color="#0a0a0a" title="Black Sapphire" onclick="changeCarColor(this, 'car-display-serie1', 'color-name-serie1')"></div>
+                                <div class="color-swatch" style="background-color: #002b5e;" data-color="#001229" title="Phytonic Blue" onclick="changeCarColor(this, 'car-display-serie1', 'color-name-serie1')"></div>
+                                <div class="color-swatch" style="background-color: #7b001c;" data-color="#240008" title="Melbourne Red" onclick="changeCarColor(this, 'car-display-serie1', 'color-name-serie1')"></div>
+                            </div>
+                            <p class="text-center mt-3" style="font-size: 0.85rem; color: var(--accent-silver);" id="color-name-serie1">Color seleccionado: Alpine White</p>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="specs-panel">
+                                <h3 class="mb-4" style="font-weight: 600; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">Rendimiento M135i</h3>
+                                <div class="spec-box">
+                                    <div class="spec-value">306 <span style="font-size: 1rem; font-weight:400;">CV</span></div>
+                                    <div class="spec-label">Potencia Máxima</div>
+                                </div>
+                                <div class="spec-box">
+                                    <div class="spec-value">4.8 <span style="font-size: 1rem; font-weight:400;">s</span></div>
+                                    <div class="spec-label">Aceleración 0-100 km/h</div>
+                                </div>
+                                <div class="spec-box">
+                                    <div class="spec-value">450 <span style="font-size: 1rem; font-weight:400;">Nm</span></div>
+                                    <div class="spec-label">Torque Máximo</div>
+                                </div>
+                                <a href="#contacto" class="btn btn-hero-primary w-100 mt-auto" style="padding: 1rem; font-size: 0.85rem; text-align: center;">Solicitar Cotización</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- M PERFORMANCE SECTION -->
+    <section id="m-performance" class="m-performance-section">
+        <div class="container">
+            <div class="row align-items-center flex-column-reverse flex-lg-row">
+                <div class="col-12 col-lg-6 mt-5 mt-lg-0 text-center text-lg-start">
+                    <h2 class="hero-title" style="font-size: 2.4rem;">Pura Adrenalina.<br><span style="color: var(--bmw-red);">M Performance.</span></h2>
+                    <p class="hero-subtitle mt-4">Ingeniería llevada al límite absoluto. Cada fase del ciclo de nuestros motores —admisión, compresión, explosión y escape— está calibrada milimétricamente para entregar una respuesta brutal y precisa tanto en la pista como en la ciudad.</p>
+                    <a href="#contacto" class="btn btn-m-performance mt-3">Descubrir Modelos M</a>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="m-performance-img-box">
+                        <img src="img/enpista.jpg" alt="Motor BMW M Performance" onerror="this.style.display='none';">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POST-VENTA -->
+    <section id="postventa" class="postventa-section">
+        <div class="container">
+            <div class="row mb-5 text-center">
+                <div class="col-12">
+                    <h2 class="hero-title" style="font-size: 2.2rem;">Post-Venta Premium</h2>
+                    <p class="hero-subtitle">El cuidado experto y detallado que tu vehículo exige.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card-premium p-4">
+                        <img src="img/service.jpg" alt="Service Oficial" class="card-premium-img" onerror="this.style.display='none';">
+                        <h4 style="font-weight: 600; font-size: 1.1rem; text-transform: uppercase;">Service Oficial</h4>
+                        <p style="font-size: 0.9rem; color: var(--accent-silver); margin-bottom: 0;">Mantenimiento integral con herramientas de diagnóstico homologadas por BMW Group.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card-premium p-4">
+                        <img src="img/detailing.jpg" alt="Detailing y Estética" class="card-premium-img" onerror="this.style.display='none';">
+                        <h4 style="font-weight: 600; font-size: 1.1rem; text-transform: uppercase;">Detailing y Estética</h4>
+                        <p style="font-size: 0.9rem; color: var(--accent-silver); margin-bottom: 0;">Bakup de laca, tratamientos cerámicos y limpieza profunda para un brillo absoluto y protección duradera.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card-premium p-4">
+                        <img src="img/repuesto.jpg" alt="Repuestos Originales" class="card-premium-img" onerror="this.style.display='none';">
+                        <h4 style="font-weight: 600; font-size: 1.1rem; text-transform: uppercase;">Repuestos Originales</h4>
+                        <p style="font-size: 0.9rem; color: var(--accent-silver); margin-bottom: 0;">Preservá el valor y la seguridad de tu auto utilizando únicamente piezas originales garantizadas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO CON DATOS REALES -->
+    <section id="contacto" class="contacto-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-5 mb-5 mb-lg-0 pe-lg-5">
+                    <h2 class="hero-title" style="font-size: 2rem;">Contactanos</h2>
+                    <p class="hero-subtitle mb-4">Completá el formulario y un asesor comercial se comunicará a la brevedad para coordinar tu visita.</p>
+                    
+                    <div class="contact-info-premium mb-4">
+                        <p><i class="fas fa-map-marker-alt" style="color: var(--bmw-blue); width: 25px;"></i> Camino Centenario 1249, City Bell</p>
+                        <p><i class="fas fa-phone" style="color: var(--bmw-blue); width: 25px;"></i> 0221-4800505</p>
+                        <p><i class="fas fa-envelope" style="color: var(--bmw-blue); width: 25px;"></i> ventas@bellmotors.com</p>
+                        <p><i class="fas fa-tools" style="color: var(--bmw-blue); width: 25px;"></i> postventa@bellmotors.com</p>
+                    </div>
+                    
+                    <form action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST">
+                        <input type="text" name="nombre" class="form-control form-control-premium w-100" placeholder="Nombre completo" required>
+                        <input type="email" name="email" class="form-control form-control-premium w-100" placeholder="Correo electrónico" required>
+                        <input type="tel" name="telefono" class="form-control form-control-premium w-100" placeholder="Teléfono" required>
+                        <textarea name="mensaje" class="form-control form-control-premium w-100" placeholder="¿En qué modelo estás interesado?" rows="3"></textarea>
+                        <button type="submit" class="btn btn-hero-primary w-100 mt-4" style="padding: 1rem; font-size: 0.85rem;">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-7 mt-4 mt-lg-0">
+                    <div class="map-placeholder">
+                        <iframe src="https://maps.google.com/maps?q=BMW%20Bell%20Motors,%20Camino%20Centenario%201249,%20City%20Bell&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) contrast(100%);" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CON DATOS REALES -->
+    <footer class="simple-footer">
+        <div class="container text-center">
+            <img src="img/logo.png" alt="Bell Motors Logo" class="footer-logo">
+            
+            <div class="social-icons-container">
+                <a href="https://www.instagram.com/bmwbellmotors" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/bmwbellmotors" target="_blank" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/BMWBellMotors" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            </div>
+
+            <p style="font-size: 0.85rem; color: var(--accent-silver); margin-bottom: 0.5rem; font-weight: 600;">Bell Motors S.A. — Concesionario Exclusivo BMW</p>
+            <p style="font-size: 0.85rem; color: var(--accent-silver); margin-bottom: 0.3rem;">Camino Centenario 1249, City Bell</p>
+            <p style="font-size: 0.85rem; color: var(--accent-silver); margin-bottom: 2rem;">Tel: 0221-4800505 | ventas@bellmotors.com | postventa@bellmotors.com</p>
+            <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-bottom: 0;">&copy; 2026 Bell Motors S.A. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/5492214800505?text=Hola,%20estoy%20visitando%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20hacer%20una%20consulta." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para Interactividad del Showroom -->
+    <script>
+        // Actualizada para manejar múltiples contenedores de autos en las pestañas
+        function changeCarColor(element, displayId, nameId) {
+            const newBgColor = element.getAttribute('data-color');
+            const colorName = element.getAttribute('title');
+
+            document.getElementById(displayId).style.backgroundColor = newBgColor;
+            document.getElementById(nameId).innerText = 'Color seleccionado: ' + colorName;
+
+            const swatches = element.parentElement.querySelectorAll('.color-swatch');
+            swatches.forEach(swatch => swatch.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // Función para cambiar de pestaña desde el catálogo y hacer scroll
+        function goToShowroom(tabId) {
+            document.getElementById('showroom-virtual').scrollIntoView({ behavior: 'smooth' });
+            var triggerEl = document.querySelector('#' + tabId);
+            var tab = new bootstrap.Tab(triggerEl);
+            tab.show();
+        }
+    </script>
+</body>
+</html>
