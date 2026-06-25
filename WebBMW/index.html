@@ -5,20 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Bell Motors | Concesionario Exclusivo BMW</title>
     
-    <!-- Etiquetas Open Graph para Redes Sociales y WhatsApp -->
     <meta property="og:title" content="Bell Motors | Concesionario Exclusivo BMW">
     <meta property="og:description" content="Descubrí una experiencia digital a la altura de la ingeniería BMW de alta gama. Catálogo, Showroom Virtual y Post-Venta oficial en City Bell.">
     <meta property="og:image" content="https://www.bellmotors.com/img/agencia.jpg">
     <meta property="og:url" content="https://www.bellmotors.com">
     <meta property="og:type" content="website">
 
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -31,6 +27,12 @@
             --bmw-dark-blue: #002B5E;
             --bmw-red: #F11A22;
             --bmw-white: #FFFFFF;
+            --header-height: 80px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--header-height); 
         }
 
         body {
@@ -38,14 +40,13 @@
             background-color: var(--bg-dark);
             color: var(--text-light);
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
         .flip-x {
             transform: scaleX(-1);
         }
 
-        /* --- HEADER OPTIMIZADO CON TEXTO DEBAJO DEL LOGO --- */
+        /* --- HEADER OPTIMIZADO CON TEXTO --- */
         .navbar-premium {
             background: rgba(10, 10, 10, 0.85);
             backdrop-filter: blur(20px);
@@ -54,6 +55,9 @@
             z-index: 1030;
             padding-top: 0.5rem; 
             padding-bottom: 0.5rem;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
         }
 
         .brand-container {
@@ -65,10 +69,10 @@
         }
 
         .navbar-brand img {
-            height: 42px; /* Ligeramente más pequeño para dar lugar al texto */
+            height: 40px; 
             object-fit: contain;
             filter: brightness(1);
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
 
         .brand-text {
@@ -82,11 +86,11 @@
 
         .nav-link-premium {
             color: var(--text-light) !important;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 300;
             letter-spacing: 1px;
             text-transform: uppercase;
-            padding: 0.5rem 1.2rem !important;
+            padding: 0.5rem 1rem !important;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -111,11 +115,11 @@
             border: 1px solid var(--text-light);
             color: var(--text-light);
             background: transparent;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 400;
             letter-spacing: 1px;
             text-transform: uppercase;
-            padding: 0.6rem 1.5rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 0;
             transition: all 0.3s ease;
             display: inline-block;
@@ -136,7 +140,6 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding-top: 110px;  
             padding-bottom: 60px; 
         }
 
@@ -235,39 +238,13 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
-        /* --- TRAYECTORIA --- */
-        .trayectoria-section {
+        /* --- SECCIONES GENÉRICAS --- */
+        .section-premium {
             padding: 6rem 0;
-            background-color: var(--bg-dark);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .trayectoria-img-box {
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 10px;
-            background: #111;
-        }
-
-        .trayectoria-img-box img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            filter: grayscale(20%) contrast(110%);
-            transition: all 0.4s ease;
-        }
-
-        .trayectoria-img-box:hover img {
-            filter: grayscale(0%) contrast(100%);
-        }
-
-        /* --- MODELOS / CATÁLOGO NORMAL --- */
-        .modelos-section {
-            padding: 6rem 0;
-            background-color: var(--bg-dark);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
+        /* --- MODELOS / CATÁLOGO --- */
         .model-card {
             background: rgba(255,255,255,0.01);
             border: 1px solid rgba(255,255,255,0.05);
@@ -321,13 +298,8 @@
             transition: transform 0.5s ease;
         }
 
-        .model-card:hover .model-img-wrapper img {
-            transform: scale(1.08);
-        }
-
-        .model-card:hover .model-img-wrapper img.flip-x {
-            transform: scaleX(-1) scale(1.08);
-        }
+        .model-card:hover .model-img-wrapper img { transform: scale(1.08); }
+        .model-card:hover .model-img-wrapper img.flip-x { transform: scaleX(-1) scale(1.08); }
 
         .model-info {
             padding: 1.5rem;
@@ -357,16 +329,47 @@
             font-weight: 600;
         }
 
-        /* --- SHOWROOM VIRTUAL NORMAL --- */
-        .showroom-section {
-            padding: 6rem 0;
-            background-color: var(--bg-darker);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        /* --- BOTONES COMPARAR MODELOS SHOWROOM --- */
+        .btn-compare-link {
+            background: transparent;
+            color: var(--accent-silver);
+            border: none;
+            text-decoration: underline;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.8rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            border-radius: 0;
+        }
+        .btn-compare-link:hover {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-light);
+            text-decoration: none;
         }
 
-        .showroom-tabs {
-            gap: 10px;
+        .btn-compare-m {
+            background: transparent;
+            color: rgba(255,255,255,0.7);
+            border: none;
+            text-decoration: underline;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.8rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            border-radius: 0;
         }
+        .btn-compare-m:hover {
+            background: rgba(241, 26, 34, 0.05);
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        /* --- SHOWROOM VIRTUAL --- */
+        .showroom-tabs { gap: 10px; }
 
         .showroom-tabs .nav-link {
             color: var(--accent-silver);
@@ -417,20 +420,15 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
-        .color-swatch:hover {
-            transform: scale(1.15);
-        }
-
-        .color-swatch.active {
-            border-color: #ffffff;
-            transform: scale(1.1);
-        }
+        .color-swatch:hover { transform: scale(1.15); }
+        .color-swatch.active { border-color: #ffffff; transform: scale(1.1); }
 
         .specs-panel {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
             padding: 2.5rem;
-            height: 450px;
+            min-height: 450px;
+            height: auto;
             display: flex;
             flex-direction: column;
             border-radius: 4px;
@@ -462,6 +460,129 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 5px;
+        }
+
+        /* --- COMPARADOR TÉCNICO LADO A LADO --- */
+        .comparador-section {
+            background-color: var(--bg-dark);
+        }
+
+        .comp-card {
+            background: var(--bg-darker);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
+            padding: 2.5rem;
+            height: 100%;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .comp-card:hover {
+            border-color: rgba(0, 138, 201, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 138, 201, 0.1);
+        }
+
+        /* FIX DE ZOOM Y ESPEJO EN COMPARADOR */
+        .comp-img-container {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            background: #111;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .comp-img-container img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+        
+        .comp-card:hover .comp-img-container img { transform: scale(1.08); }
+        .comp-card:hover .comp-img-container img.flip-x { transform: scaleX(-1) scale(1.08); }
+
+        /* DISEÑO DE SELECTOR DE MODELO (DROPDOWN PREMIUM) */
+        .select-premium {
+            width: 100%;
+            background-color: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-light);
+            border-radius: 4px;
+            padding: 1rem 1.5rem;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%238e8e93' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1.5rem center;
+            background-size: 16px 12px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        .select-premium:hover {
+            border-color: rgba(255,255,255,0.3);
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        .select-premium:focus {
+            outline: none;
+            border-color: var(--bmw-blue);
+            box-shadow: 0 0 15px rgba(0, 138, 201, 0.2);
+        }
+
+        .select-premium option {
+            background-color: var(--bg-darker);
+            color: var(--text-light);
+            padding: 10px;
+        }
+
+        /* EFECTO PULSO PARA GUIAR EL CLIC */
+        @keyframes pulseSelect {
+            0% { box-shadow: 0 0 0 0 rgba(0, 138, 201, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 138, 201, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 138, 201, 0); }
+        }
+        .pulse-highlight {
+            animation: pulseSelect 1.5s ease-out;
+            border-color: var(--bmw-blue) !important;
+        }
+
+        .comp-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .comp-row:last-child { border-bottom: none; }
+
+        .comp-label {
+            color: var(--accent-silver);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        .comp-value {
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: right;
+            color: var(--text-light);
+            transition: color 0.4s ease, text-shadow 0.4s ease;
+        }
+        
+        .comparar-ganador {
+            color: var(--bmw-blue) !important;
+            text-shadow: 0 0 12px rgba(0, 138, 201, 0.6);
         }
 
         /* --- M PERFORMANCE SECCIÓN --- */
@@ -525,7 +646,7 @@
             box-shadow: 0 0 30px rgba(241, 26, 34, 0.7);
         }
 
-        /* EFECTOS MODO SPORT M BMW (Catálogo M) */
+        /* --- EFECTOS MODO SPORT M RESTAURADOS --- */
         .m-model-card {
             background: linear-gradient(145deg, rgba(15,15,15,1) 0%, rgba(5,5,5,1) 100%);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -564,9 +685,7 @@
             pointer-events: none;
         }
 
-        .m-model-card:hover::after {
-            left: 150%;
-        }
+        .m-model-card:hover::after { left: 150%; }
 
         .m-model-card:hover {
             transform: translateY(-8px) scale(1.02);
@@ -574,9 +693,7 @@
             box-shadow: 0 15px 35px rgba(241, 26, 34, 0.25);
         }
 
-        .m-model-card:hover::before {
-            box-shadow: inset 0 0 20px rgba(241, 26, 34, 0.15);
-        }
+        .m-model-card:hover::before { box-shadow: inset 0 0 20px rgba(241, 26, 34, 0.15); }
 
         .m-tag {
             font-size: 0.8rem;
@@ -587,9 +704,7 @@
         }
 
         /* SHOWROOM M */
-        .m-tabs {
-            gap: 10px;
-        }
+        .m-tabs { gap: 10px; }
 
         .m-tabs .nav-link {
             color: var(--accent-silver);
@@ -613,7 +728,8 @@
             background: rgba(241, 26, 34, 0.02);
             border: 1px solid rgba(241, 26, 34, 0.2);
             padding: 2.5rem;
-            height: 450px;
+            min-height: 450px;
+            height: auto;
             display: flex;
             flex-direction: column;
             border-radius: 4px;
@@ -692,7 +808,6 @@
 
         /* --- POST-VENTA --- */
         .postventa-section {
-            padding: 6rem 0;
             background-color: var(--bg-darker);
         }
 
@@ -719,9 +834,7 @@
             transition: left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .card-premium:hover::before {
-            left: 0;
-        }
+        .card-premium:hover::before { left: 0; }
 
         .card-premium:hover {
             transform: translateY(-8px);
@@ -740,11 +853,9 @@
             transition: opacity 0.3s ease;
         }
 
-        /* --- SIMULADOR DE FINANCIACIÓN INTERACTIVO --- */
+        /* --- SIMULADOR DE FINANCIACIÓN --- */
         .financiacion-section {
-            padding: 6rem 0;
             background-color: var(--bg-dark);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .slider-premium {
@@ -769,15 +880,11 @@
             transition: transform 0.1s;
         }
 
-        .slider-premium::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-        }
+        .slider-premium::-webkit-slider-thumb:hover { transform: scale(1.2); }
 
-        /* --- EXPERIENCIA LIFESTYLE MASONRY --- */
+        /* --- EXPERIENCIA LIFESTYLE --- */
         .experiencia-section {
-            padding: 6rem 0;
             background-color: var(--bg-darker);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .lifestyle-grid {
@@ -801,9 +908,7 @@
             transition: transform 0.5s ease;
         }
 
-        .lifestyle-item:hover img {
-            transform: scale(1.05);
-        }
+        .lifestyle-item:hover img { transform: scale(1.05); }
 
         .lifestyle-overlay {
             position: absolute;
@@ -817,16 +922,12 @@
 
         /* --- COTIZÁ TU USADO --- */
         .cotiza-section {
-            padding: 6rem 0;
             background: linear-gradient(135deg, var(--bg-dark) 0%, #0a1118 100%);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         /* --- CONTACTO --- */
         .contacto-section {
-            padding: 6rem 0;
             background-color: var(--bg-darker);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .contact-info-premium p {
@@ -911,9 +1012,7 @@
             transition: opacity 0.3s ease;
         }
 
-        .footer-logo:hover {
-            opacity: 1;
-        }
+        .footer-logo:hover { opacity: 1; }
 
         .social-icons-container {
             display: flex;
@@ -973,10 +1072,16 @@
                 border-top: 1px solid rgba(255, 255, 255, 0.05);
                 margin-top: 1rem;
             }
-            .car-display-container, .specs-panel, .m-specs-panel {
+            .car-display-container, .comp-card {
                 height: auto;
                 min-height: 300px;
             }
+            .specs-panel, .m-specs-panel {
+                height: auto;
+                min-height: 450px;
+            }
+            .navbar-premium { height: auto; padding-top: 0.8rem; padding-bottom: 0.8rem;}
+            .brand-container { margin-bottom: 10px; }
         }
 
         @media (max-width: 768px) {
@@ -991,15 +1096,15 @@
                 width: 100%;
                 padding: 1rem;
             }
+            .comp-row { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .comp-value { text-align: left; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER / NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-premium fixed-top">
         <div class="container">
-            <!-- LOGO CON TEXTO DEBAJO -->
             <a class="navbar-brand brand-container" href="#">
                 <img src="img/logo.png" alt="Bell Motors Logo">
                 <span class="brand-text">Bell Motors</span>
@@ -1021,7 +1126,6 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <section class="hero-container">
         <video class="hero-video-bg" autoplay loop muted playsinline>
             <source src="video/hero-video.mp4" type="video/mp4">
@@ -1038,7 +1142,6 @@
         </div>
     </section>
 
-    <!-- FILTRO VISUAL DE DESEO -->
     <nav class="filter-quick-bar">
         <div class="container">
             <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
@@ -1050,8 +1153,7 @@
         </div>
     </nav>
 
-    <!-- MODELOS / CATÁLOGO -->
-    <section id="modelos" class="modelos-section">
+    <section id="modelos" class="section-premium modelos-section">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end gap-3">
@@ -1104,8 +1206,7 @@
         </div>
     </section>
 
-    <!-- SHOWROOM VIRTUAL NORMAL -->
-    <section id="showroom-virtual" class="showroom-section">
+    <section id="showroom-virtual" class="section-premium showroom-section">
         <div class="container">
             <div class="row mb-4 text-center">
                 <div class="col-12">
@@ -1114,7 +1215,7 @@
                 </div>
             </div>
 
-            <ul class="nav nav-pills justify-content-center mb-5 showroom-tabs" id="showroomTabs" role="tablist">
+            <ul class="nav nav-pills justify-content-center mb-5 showroom-tabs flex-wrap" id="showroomTabs" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="tab-sedan" data-bs-toggle="pill" data-bs-target="#pane-sedan" type="button" role="tab">Serie 3 Sedán</button>
                 </li>
@@ -1127,7 +1228,6 @@
             </ul>
 
             <div class="tab-content" id="showroomTabsContent">
-                <!-- PESTAÑA: SERIE 3 SEDÁN -->
                 <div class="tab-pane fade show active" id="pane-sedan" role="tabpanel" tabindex="0">
                     <div class="row align-items-start">
                         <div class="col-12 col-lg-8 mb-5 mb-lg-0">
@@ -1157,13 +1257,15 @@
                                     <div class="spec-value">400 <span style="font-size: 1rem; font-weight:400;">Nm</span></div>
                                     <div class="spec-label">Torque Máximo</div>
                                 </div>
-                                <a href="#contacto" class="btn btn-hero-primary w-100 mt-auto" style="padding: 1rem; font-size: 0.85rem; text-align: center;">Solicitar Cotización</a>
+                                <div class="mt-auto d-flex flex-column gap-2">
+                                    <a href="#contacto" class="btn btn-hero-primary w-100" style="padding: 1rem; font-size: 0.85rem; text-align: center;">Solicitar Cotización</a>
+                                    <button onclick="triggerCompare('sedan')" class="btn-compare-link">Comparar Modelo</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- PESTAÑA: X1 M SPORT -->
                 <div class="tab-pane fade" id="pane-x1" role="tabpanel" tabindex="0">
                     <div class="row align-items-start">
                         <div class="col-12 col-lg-8 mb-5 mb-lg-0">
@@ -1193,13 +1295,15 @@
                                     <div class="spec-value">300 <span style="font-size: 1rem; font-weight:400;">Nm</span></div>
                                     <div class="spec-label">Torque Máximo</div>
                                 </div>
-                                <a href="#contacto" class="btn btn-hero-primary w-100 mt-auto" style="padding: 1rem; font-size: 0.85rem; text-align: center;">Solicitar Cotización</a>
+                                <div class="mt-auto d-flex flex-column gap-2">
+                                    <a href="#contacto" class="btn btn-hero-primary w-100" style="padding: 1rem; font-size: 0.85rem; text-align: center;">Solicitar Cotización</a>
+                                    <button onclick="triggerCompare('x1')" class="btn-compare-link">Comparar Modelo</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- PESTAÑA: SERIE 1 -->
                 <div class="tab-pane fade" id="pane-serie1" role="tabpanel" tabindex="0">
                     <div class="row align-items-start">
                         <div class="col-12 col-lg-8 mb-5 mb-lg-0">
@@ -1229,17 +1333,59 @@
                                     <div class="spec-value">220 <span style="font-size: 1rem; font-weight:400;">Nm</span></div>
                                     <div class="spec-label">Torque Máximo</div>
                                 </div>
-                                <a href="#contacto" class="btn btn-hero-primary w-100 mt-auto" style="padding: 1rem; font-size: 0.85rem; text-align: center;">Solicitar Cotización</a>
+                                <div class="mt-auto d-flex flex-column gap-2">
+                                    <a href="#contacto" class="btn btn-hero-primary w-100" style="padding: 1rem; font-size: 0.85rem; text-align: center;">Solicitar Cotización</a>
+                                    <button onclick="triggerCompare('serie1')" class="btn-compare-link">Comparar Modelo</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- INTRODUCCIÓN M PERFORMANCE -->
+    <section id="comparador" class="section-premium comparador-section">
+        <div class="container">
+            <div class="row mb-5 text-center">
+                <div class="col-12">
+                    <h2 class="hero-title" style="font-size: 2.2rem;">Análisis Técnico Comparativo</h2>
+                    <p class="hero-subtitle">Enfrentá los modelos de nuestra gama y descubrí cuál se adapta mejor a tu perfil de conducción.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-12 col-md-5">
+                    <div class="comp-card">
+                        <label for="comp-select-1" style="display:block; font-size:0.75rem; color:var(--accent-silver); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Elegir Modelo</label>
+                        <select id="comp-select-1" class="select-premium" onchange="updateComparator(1)" title="Seleccionar primer vehículo"></select>
+                        <div class="comp-img-container mt-4">
+                            <img id="comp-img-1" src="" alt="Vehículo 1">
+                        </div>
+                        <div id="comp-specs-1">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-1 d-flex align-items-center justify-content-center py-4 py-md-0">
+                    <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-silver);">VS</div>
+                </div>
+
+                <div class="col-12 col-md-5">
+                    <div class="comp-card">
+                        <label for="comp-select-2" style="display:block; font-size:0.75rem; color:var(--accent-silver); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Elegir Modelo</label>
+                        <select id="comp-select-2" class="select-premium" onchange="updateComparator(2)" title="Seleccionar segundo vehículo"></select>
+                        <div class="comp-img-container mt-4">
+                            <img id="comp-img-2" src="" alt="Vehículo 2">
+                        </div>
+                        <div id="comp-specs-2">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="m-performance" class="m-performance-section">
         <div class="container">
             <div class="row align-items-center mb-5">
@@ -1253,7 +1399,6 @@
                 </div>
             </div>
 
-            <!-- CONTENEDOR OCULTO M PERFORMANCE -->
             <div id="m-models-container" class="m-models-hidden">
                 <div class="row g-4 mb-5 mt-4">
                     <div class="col-12 col-md-6 col-lg-4">
@@ -1337,7 +1482,10 @@
                                             <div class="spec-value" style="color: var(--bmw-red);">650 <span style="font-size: 1rem; font-weight:400; color: var(--text-light);">Nm</span></div>
                                             <div class="spec-label">Torque Máximo</div>
                                         </div>
-                                        <a href="#contacto" class="btn btn-m-primary w-100 mt-auto">Solicitar Cotización</a>
+                                        <div class="mt-auto d-flex flex-column gap-2 w-100">
+                                            <a href="#contacto" class="btn btn-m-primary w-100">Solicitar Cotización</a>
+                                            <button onclick="triggerCompare('m4')" class="btn-compare-m">Comparar Modelo</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1372,7 +1520,10 @@
                                             <div class="spec-value" style="color: var(--bmw-red);">550 <span style="font-size: 1rem; font-weight:400; color: var(--text-light);">Nm</span></div>
                                             <div class="spec-label">Torque Máximo</div>
                                         </div>
-                                        <a href="#contacto" class="btn btn-m-primary w-100 mt-auto">Solicitar Cotización</a>
+                                        <div class="mt-auto d-flex flex-column gap-2 w-100">
+                                            <a href="#contacto" class="btn btn-m-primary w-100">Solicitar Cotización</a>
+                                            <button onclick="triggerCompare('m3')" class="btn-compare-m">Comparar Modelo</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1407,7 +1558,10 @@
                                             <div class="spec-value" style="color: var(--bmw-red);">750 <span style="font-size: 1rem; font-weight:400; color: var(--text-light);">Nm</span></div>
                                             <div class="spec-label">Torque Máximo</div>
                                         </div>
-                                        <a href="#contacto" class="btn btn-m-primary w-100 mt-auto">Solicitar Cotización</a>
+                                        <div class="mt-auto d-flex flex-column gap-2 w-100">
+                                            <a href="#contacto" class="btn btn-m-primary w-100">Solicitar Cotización</a>
+                                            <button onclick="triggerCompare('m5')" class="btn-compare-m">Comparar Modelo</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1418,8 +1572,7 @@
         </div>
     </section>
 
-    <!-- POST-VENTA -->
-    <section id="postventa" class="postventa-section">
+    <section id="postventa" class="section-premium postventa-section" style="background-color: var(--bg-darker);">
         <div class="container">
             <div class="row mb-5 text-center">
                 <div class="col-12">
@@ -1456,34 +1609,7 @@
         </div>
     </section>
 
-    <!-- EXPERIENCIA LIFESTYLE (PRUEBA SOCIAL) -->
-    <section id="experiencia-bell" class="experiencia-section">
-        <div class="container">
-            <div class="row mb-5 text-center">
-                <div class="col-12">
-                    <h2 class="hero-title" style="font-size: 2.2rem;">Experiencia Bell Motors</h2>
-                    <p class="hero-subtitle">La confianza y el respaldo que consolidan una comunidad exclusiva.</p>
-                </div>
-            </div>
-            <div class="lifestyle-grid">
-                <div class="lifestyle-item">
-                    <img src="img/agencia.jpg" alt="Entregas Exclusivas">
-                    <div class="lifestyle-overlay">Entregas Oficiales 0KM</div>
-                </div>
-                <div class="lifestyle-item">
-                    <img src="img/detailing.jpg" alt="Tratamientos de Estética">
-                    <div class="lifestyle-overlay">Laboratorio Detailing Premium</div>
-                </div>
-                <div class="lifestyle-item">
-                    <img src="img/enpista.jpg" alt="Eventos Track Day">
-                    <div class="lifestyle-overlay">Comunidad M Performance</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SIMULADOR DE FINANCIACIÓN INTERACTIVO -->
-    <section id="simulador-financiero" class="financiacion-section">
+    <section id="simulador-financiero" class="section-premium financiacion-section">
         <div class="container">
             <div class="row mb-5 text-center">
                 <div class="col-12">
@@ -1536,8 +1662,32 @@
         </div>
     </section>
 
-    <!-- COTIZÁ TU USADO -->
-    <section id="cotiza-usado" class="cotiza-section">
+    <section id="experiencia-bell" class="section-premium experiencia-section">
+        <div class="container">
+            <div class="row mb-5 text-center">
+                <div class="col-12">
+                    <h2 class="hero-title" style="font-size: 2.2rem;">Experiencia Bell Motors</h2>
+                    <p class="hero-subtitle">La confianza y el respaldo que consolidan una comunidad exclusiva.</p>
+                </div>
+            </div>
+            <div class="lifestyle-grid">
+                <div class="lifestyle-item">
+                    <img src="img/agencia.jpg" alt="Entregas Exclusivas">
+                    <div class="lifestyle-overlay">Entregas Oficiales 0KM</div>
+                </div>
+                <div class="lifestyle-item">
+                    <img src="img/detailing.jpg" alt="Tratamientos de Estética">
+                    <div class="lifestyle-overlay">Laboratorio Detailing Premium</div>
+                </div>
+                <div class="lifestyle-item">
+                    <img src="img/enpista.jpg" alt="Eventos Track Day">
+                    <div class="lifestyle-overlay">Comunidad M Performance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cotiza-usado" class="section-premium cotiza-section">
         <div class="container">
             <div class="row align-items-center p-4 p-lg-5" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; position: relative; overflow: hidden;">
                 <div style="position: absolute; top: -50%; right: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(0,138,201,0.08) 0%, transparent 70%); transform: rotate(15deg); pointer-events: none;"></div>
@@ -1545,11 +1695,10 @@
                 <div class="col-12 col-lg-6 mb-5 mb-lg-0 position-relative" style="z-index: 2;">
                     <h2 class="hero-title" style="font-size: 2rem;">Renová tu Estándar.</h2>
                     <h3 style="color: var(--bmw-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem; margin-bottom: 1rem;">Tomamos tu vehículo en parte de pago</h3>
-                    <p style="color: var(--accent-silver); font-weight: 300; line-height: 1.6; margin-bottom: 2rem;">Nuestro equipo de tasadores profesionales evaluará tu unidad actual para ofrecerte la mejor cotización del mercado. Da el salto hacia tu próximo BMW con la tranquilidad y respaldo de Bell Motors.</p>
+                    <p style="color: var(--accent-silver); font-weight: 300; line-height: 1.6; margin-bottom: 2rem;">Nuestro equipo de tasadores profesionales evaluará tu unidad actual para ofrecerte la mejor cotización del mercado.</p>
                     <ul style="color: var(--text-light); font-size: 0.9rem; list-style: none; padding: 0; line-height: 2;">
                         <li><i class="fas fa-check" style="color: var(--bmw-blue); margin-right: 10px;"></i> Tasación transparente y en el acto.</li>
                         <li><i class="fas fa-check" style="color: var(--bmw-blue); margin-right: 10px;"></i> Tomamos vehículos multimarca Premium.</li>
-                        <li><i class="fas fa-check" style="color: var(--bmw-blue); margin-right: 10px;"></i> Gestión de documentación 100% a nuestro cargo.</li>
                     </ul>
                 </div>
                 <div class="col-12 col-lg-6 position-relative" style="z-index: 2;">
@@ -1558,19 +1707,19 @@
                             <input type="hidden" name="motivo" value="Cotización de Vehículo Usado">
                             <div class="row">
                                 <div class="col-12 col-md-6">
-                                    <input type="text" name="marca_modelo" class="form-control form-control-premium w-100" placeholder="Marca y Modelo de tu auto" required>
+                                    <input type="text" name="marca_modelo" class="form-control form-control-premium w-100" placeholder="Marca y Modelo" required>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <input type="number" name="anio" class="form-control form-control-premium w-100" placeholder="Año" required>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <input type="text" name="kilometraje" class="form-control form-control-premium w-100" placeholder="Kilometraje actual" required>
+                                    <input type="text" name="kilometraje" class="form-control form-control-premium w-100" placeholder="Kilómetros" required>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <input type="tel" name="telefono" class="form-control form-control-premium w-100" placeholder="Tu Teléfono" required>
+                                    <input type="tel" name="telefono" class="form-control form-control-premium w-100" placeholder="Teléfono" required>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-hero-primary w-100 mt-3" style="padding: 0.8rem; background: transparent; color: var(--bmw-blue); border-color: var(--bmw-blue);">Solicitar Cotización de mi Auto</button>
+                            <button type="submit" class="btn btn-hero-primary w-100 mt-3" style="padding: 0.8rem;">Solicitar Cotización</button>
                         </form>
                     </div>
                 </div>
@@ -1578,28 +1727,24 @@
         </div>
     </section>
 
-    <!-- CONTACTO GENERAL -->
-    <section id="contacto" class="contacto-section">
+    <section id="contacto" class="section-premium contacto-section" style="background-color: var(--bg-darker);">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-5 mb-5 mb-lg-0 pe-lg-5">
                     <h2 class="hero-title" style="font-size: 2rem;">Contactanos</h2>
-                    <p class="hero-subtitle mb-4">Completá el formulario y un asesor comercial se comunicará a la brevedad para coordinar tu visita.</p>
+                    <p class="hero-subtitle mb-4">Completá el formulario y un asesor comercial se comunicará a la brevedad.</p>
                     
                     <div class="contact-info-premium mb-4">
                         <p><i class="fas fa-map-marker-alt" style="color: var(--bmw-blue); width: 25px;"></i> Camino Centenario 1249, City Bell</p>
                         <p><i class="fas fa-phone" style="color: var(--bmw-blue); width: 25px;"></i> 0221-4800505</p>
-                        <p><i class="fas fa-envelope" style="color: var(--bmw-blue); width: 25px;"></i> ventas@bellmotors.com</p>
-                        <p><i class="fas fa-tools" style="color: var(--bmw-blue); width: 25px;"></i> postventa@bellmotors.com</p>
                     </div>
                     
                     <form action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST">
                         <input type="hidden" name="motivo" value="Contacto General Web">
                         <input type="text" name="nombre" class="form-control form-control-premium w-100" placeholder="Nombre completo" required>
                         <input type="email" name="email" class="form-control form-control-premium w-100" placeholder="Correo electrónico" required>
-                        <input type="tel" name="telefono" class="form-control form-control-premium w-100" placeholder="Teléfono" required>
                         <textarea name="mensaje" class="form-control form-control-premium w-100" placeholder="¿En qué modelo estás interesado?" rows="3"></textarea>
-                        <button type="submit" class="btn btn-hero-primary w-100 mt-4" style="padding: 1rem; font-size: 0.85rem;">Enviar Mensaje</button>
+                        <button type="submit" class="btn btn-hero-primary w-100 mt-4" style="padding: 1rem;">Enviar Mensaje</button>
                     </form>
                 </div>
                 <div class="col-12 col-lg-7 mt-4 mt-lg-0">
@@ -1611,7 +1756,31 @@
         </div>
     </section>
 
-    <!-- FOOTER CON DATOS REALES -->
+    <section id="trayectoria" class="section-premium trayectoria-section" style="background-color: var(--bg-dark);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-6 mb-5 mb-lg-0 pe-lg-5">
+                    <h4 style="color: var(--accent-silver); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;">Bell Motors S.A.</h4>
+                    <h2 class="hero-title" style="font-size: 2.2rem; margin-bottom: 2rem;">Desde el primer día,<br>la mejor atención.</h2>
+                    <p style="color: var(--accent-silver); font-weight: 300; line-height: 1.8; margin-bottom: 1.5rem;">Bell Motors S.A. es una empresa familiar que fue creada en el año 1997 con el propósito de representar en forma exclusiva a la marca BMW en sur del Gran Buenos Aires.</p>
+                    <p style="color: var(--accent-silver); font-weight: 300; line-height: 1.8; margin-bottom: 1.5rem;">Tras un exhaustivo análisis de nuestra trayectoria, BMW AG nos otorgó la concesión oficial, valorando nuestra conducta empresarial intachable.</p>
+                    <p style="color: var(--text-light); font-weight: 400; margin-bottom: 1rem;">Nuestra relación con la marca premium se basa en tres pilares fundamentales:</p>
+                    
+                    <ul style="color: var(--accent-silver); font-weight: 300; line-height: 1.8; margin-bottom: 1.5rem; list-style-type: none; padding-left: 0;">
+                        <li><span style="color: var(--bmw-blue); margin-right: 10px;">■</span> Atención personalizada de sus directores.</li>
+                        <li><span style="color: var(--text-light); margin-right: 10px;">■</span> Amplio stock permanente de autos y repuestos.</li>
+                        <li><span style="color: var(--bmw-red); margin-right: 10px;">■</span> Servicio Post-Venta altamente calificado.</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="trayectoria-img-box">
+                        <img src="img/agencia.jpg" alt="Agencia Bell Motors BMW" onerror="this.style.display='none';">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="simple-footer">
         <div class="container text-center">
             <img src="img/logo.png" alt="Bell Motors Logo" class="footer-logo">
@@ -1624,42 +1793,35 @@
 
             <p style="font-size: 0.85rem; color: var(--accent-silver); margin-bottom: 0.5rem; font-weight: 600;">Bell Motors S.A. — Concesionario Exclusivo BMW</p>
             <p style="font-size: 0.85rem; color: var(--accent-silver); margin-bottom: 0.3rem;">Camino Centenario 1249, City Bell</p>
-            <p style="font-size: 0.85rem; color: var(--accent-silver); margin-bottom: 2rem;">Tel: 0221-4800505 | ventas@bellmotors.com | postventa@bellmotors.com</p>
             <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-bottom: 0;">© 2026 Bell Motors S.A. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/5492214800505?text=Hola,%20estoy%20visitando%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20hacer%20una%20consulta." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5492214800505?text=Hola,%20quisiera%20consultar%20por%20un%20BMW." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- ============================================== -->
-    <!-- MODALES INTERACTIVOS FLOTANTES -->
-    <!-- ============================================== -->
-
-    <!-- MODAL TEST DRIVE -->
-    <div class="modal fade" id="testDriveModal" tabindex="-1" aria-labelledby="testDriveModalLabel" aria-hidden="true">
+    <div class="modal fade" id="testDriveModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-content-premium">
                 <div class="modal-header modal-header-premium">
-                    <h5 class="modal-title" id="testDriveModalLabel" style="font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Experiencia Test Drive</h5>
+                    <h5 class="modal-title" style="font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Experiencia Test Drive</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
-                    <p style="color: var(--accent-silver); font-size: 0.9rem; margin-bottom: 1.5rem;">Reservá tu prueba de manejo exclusiva completando el formulario. Un asesor te confirmará la disponibilidad.</p>
+                    <p style="color: var(--accent-silver); font-size: 0.9rem; margin-bottom: 1.5rem;">Reservá tu prueba de manejo exclusiva. Un asesor te confirmará la disponibilidad.</p>
                     <form action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST">
                         <input type="hidden" name="motivo" value="Solicitud de Test Drive">
                         <select class="form-control form-control-premium w-100" name="modelo_test_drive" required>
-                            <option value="" disabled selected>Seleccioná el modelo a probar</option>
-                            <option value="BMW Serie 3">BMW Serie 3 Sedán</option>
-                            <option value="BMW X1">BMW X1 M Sport</option>
-                            <option value="BMW Serie 1">BMW Serie 1 118i</option>
-                            <option value="BMW M">Vehículos Línea M Performance</option>
+                            <option value="" disabled selected>Seleccioná el modelo</option>
+                            <option value="BMW Serie 3">BMW Serie 3</option>
+                            <option value="BMW X1">BMW X1</option>
+                            <option value="BMW Serie 1">BMW Serie 1</option>
+                            <option value="BMW M">Línea M Performance</option>
                         </select>
-                        <input type="date" class="form-control form-control-premium w-100" name="fecha_preferida" required title="Fecha preferida">
+                        <input type="date" class="form-control form-control-premium w-100" name="fecha_preferida" required>
                         <input type="text" class="form-control form-control-premium w-100" name="nombre" placeholder="Nombre completo" required>
-                        <input type="tel" class="form-control form-control-premium w-100" name="telefono" placeholder="Teléfono de contacto" required>
+                        <input type="tel" class="form-control form-control-premium w-100" name="telefono" placeholder="Teléfono" required>
                         <button type="submit" class="btn btn-hero-primary w-100 mt-3" style="padding: 0.8rem;">Confirmar Reserva</button>
                     </form>
                 </div>
@@ -1667,21 +1829,19 @@
         </div>
     </div>
 
-    <!-- MODAL PRE-APROBACIÓN FINANCIERA -->
-    <div class="modal fade" id="financeModal" tabindex="-1" aria-labelledby="financeModalLabel" aria-hidden="true">
+    <div class="modal fade" id="financeModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-content-premium">
                 <div class="modal-header modal-header-premium">
-                    <h5 class="modal-title" id="financeModalLabel" style="font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Pre-Aprobación Financiera</h5>
+                    <h5 class="modal-title" style="font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Pre-Aprobación Financiera</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
-                    <p style="color: var(--accent-silver); font-size: 0.9rem; margin-bottom: 1.5rem;">Completá el formulario para iniciar la evaluación de tu crédito. Un asesor de BMW Financial Services te contactará a la brevedad.</p>
+                    <p style="color: var(--accent-silver); font-size: 0.9rem; margin-bottom: 1.5rem;">Completá el formulario para iniciar la evaluación de tu crédito inmediato.</p>
                     <form action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST">
                         <input type="hidden" name="motivo" value="Solicitud de Pre-Aprobación Financiera">
                         <input type="text" class="form-control form-control-premium w-100" id="inputFinanceDetail" name="detalle_financiacion" readonly style="color: var(--bmw-blue); font-weight: 600; font-size: 0.85rem;">
                         <input type="text" class="form-control form-control-premium w-100" name="nombre" placeholder="Nombre completo" required>
-                        <input type="email" class="form-control form-control-premium w-100" name="email" placeholder="Correo electrónico" required>
                         <input type="tel" class="form-control form-control-premium w-100" name="telefono" placeholder="Teléfono de contacto" required>
                         <button type="submit" class="btn btn-hero-primary w-100 mt-3" style="padding: 0.8rem;">Enviar Solicitud</button>
                     </form>
@@ -1690,20 +1850,19 @@
         </div>
     </div>
 
-    <!-- MODAL TALLER / POST-VENTA -->
-    <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+    <div class="modal fade" id="serviceModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-content-premium">
                 <div class="modal-header modal-header-premium">
-                    <h5 class="modal-title" id="serviceModalLabel" style="font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Turnos Post-Venta</h5>
+                    <h5 class="modal-title" style="font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Turnos Post-Venta</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
-                    <p style="color: var(--accent-silver); font-size: 0.9rem; margin-bottom: 1.5rem;">Dejanos tus datos para coordinar tu próximo ingreso al taller.</p>
+                    <p style="color: var(--accent-silver); font-size: 0.9rem; margin-bottom: 1.5rem;">Dejanos tus datos para coordinar tu ingreso al taller homologado.</p>
                     <form action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST">
                         <input type="text" class="form-control form-control-premium w-100" id="inputTipoServicio" name="tipo_de_servicio" readonly style="color: var(--bmw-blue); font-weight: 600;">
                         <input type="text" class="form-control form-control-premium w-100" name="nombre" placeholder="Nombre completo" required>
-                        <input type="text" class="form-control form-control-premium w-100" name="dominio" placeholder="Patente / Dominio del vehículo" required>
+                        <input type="text" class="form-control form-control-premium w-100" name="dominio" placeholder="Patente / Dominio" required>
                         <input type="tel" class="form-control form-control-premium w-100" name="telefono" placeholder="Teléfono" required>
                         <button type="submit" class="btn btn-hero-primary w-100 mt-3" style="padding: 0.8rem;">Solicitar Turno</button>
                     </form>
@@ -1712,11 +1871,38 @@
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Scripts Interactividad -->
     <script>
+        // --- BASE DE DATOS TÉCNICA DE MODELOS ---
+        const carDatabase = {
+            'serie1': { 
+                name: "Serie 1 118i", price: "45.000", cv: 140, zeroTo100: 8.5, torque: 220, cons: 5.7, 
+                screen: "Curved Display 10.7\"", gearbox: "Steptronic DKG 7v", drive: "Tracción Delantera (FWD)", img: "img/serie1.png", isFlip: true 
+            },
+            'sedan': { 
+                name: "Serie 3 330i", price: "68.000", cv: 258, zeroTo100: 5.8, torque: 400, cons: 6.6, 
+                screen: "Curved Display 14.9\"", gearbox: "Steptronic Sport 8v", drive: "Tracción Trasera (RWD)", img: "img/sedan.png", isFlip: false 
+            },
+            'x1': { 
+                name: "X1 M Sport sDrive20i", price: "59.000", cv: 204, zeroTo100: 7.6, torque: 300, cons: 6.1, 
+                screen: "Curved Display 10.7\"", gearbox: "Steptronic DKG 7v", drive: "Tracción Delantera", img: "img/x1.png", isFlip: false 
+            },
+            'm3': { 
+                name: "M3 Competition", price: "135.000", cv: 510, zeroTo100: 3.9, torque: 650, cons: 9.8, 
+                screen: "Curved Display 14.9\" + HUD", gearbox: "M Steptronic 8v", drive: "M xDrive Integrada", img: "img/m3.png", isFlip: false 
+            },
+            'm4': { 
+                name: "M4 Competition Coupé", price: "145.000", cv: 510, zeroTo100: 3.9, torque: 650, cons: 10.1, 
+                screen: "Curved Display 14.9\" + HUD", gearbox: "M Steptronic 8v", drive: "M xDrive Integrada", img: "img/m4.png", isFlip: false 
+            },
+            'm5': { 
+                name: "M5 Competition", price: "165.000", cv: 625, zeroTo100: 3.3, torque: 750, cons: 11.2, 
+                screen: "Curved Display 14.9\" + M View", gearbox: "M Steptronic 8v", drive: "M xDrive Integrada", img: "img/m5.png", isFlip: false 
+            }
+        };
+
+        // Cambiar colores en showrooms
         function changeCarColor(element, displayId, nameId) {
             const newBgColor = element.getAttribute('data-color');
             const colorName = element.getAttribute('title');
@@ -1729,6 +1915,7 @@
             element.classList.add('active');
         }
 
+        // Navegación Showroom Normal
         function goToShowroom(tabId) {
             document.getElementById('showroom-virtual').scrollIntoView({ behavior: 'smooth' });
             var triggerEl = document.querySelector('#' + tabId);
@@ -1736,13 +1923,20 @@
             tab.show();
         }
 
+        // Navegación Showroom M Performance
         function goToMShowroom(tabId) {
-            document.getElementById('m-showroom-virtual').scrollIntoView({ behavior: 'smooth' });
-            var triggerEl = document.querySelector('#' + tabId);
-            var tab = new bootstrap.Tab(triggerEl);
-            tab.show();
+            document.getElementById('m-performance').scrollIntoView({ behavior: 'smooth' });
+            const container = document.getElementById('m-models-container');
+            if (container.classList.contains('m-models-hidden')) { revealMModels(); }
+            
+            setTimeout(() => {
+                var triggerEl = document.querySelector('#' + tabId);
+                var tab = new bootstrap.Tab(triggerEl);
+                tab.show();
+            }, 300);
         }
 
+        // Animación y Revelado del Catálogo M
         function revealMModels() {
             const container = document.getElementById('m-models-container');
             const btn = document.getElementById('btn-reveal-m');
@@ -1752,15 +1946,10 @@
                 void container.offsetWidth; 
                 container.classList.add('m-models-visible');
                 btn.innerText = "Ocultar Modelos M";
-                
-                setTimeout(() => {
-                    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 200);
             } else {
                 container.classList.add('m-models-hidden');
                 container.classList.remove('m-models-visible');
                 btn.innerText = "Descubrir Modelos M";
-                document.getElementById('m-performance').scrollIntoView({ behavior: 'smooth' });
             }
         }
 
@@ -1768,6 +1957,7 @@
             document.getElementById('inputTipoServicio').value = servicio;
         }
 
+        // --- SIMULADOR DE FINANCIACIÓN ---
         function updateFinanceCalc() {
             const totalValue = parseFloat(document.getElementById('financeModel').value);
             const months = parseInt(document.getElementById('financeMonths').value);
@@ -1792,8 +1982,104 @@
             document.getElementById('inputFinanceDetail').value = `${modelName} | Anticipo: ${anticipoText} | Cuota: ${cuotaText}`;
         }
 
+        // --- COMPARADOR TÉCNICO LADO A LADO ---
+        function initComparator() {
+            const selects = [document.getElementById('comp-select-1'), document.getElementById('comp-select-2')];
+            
+            selects.forEach(select => {
+                for (const key in carDatabase) {
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.text = carDatabase[key].name;
+                    select.appendChild(option);
+                }
+            });
+
+            selects[0].value = 'serie1';
+            selects[1].value = 'sedan';
+
+            updateComparator(1);
+            updateComparator(2);
+        }
+
+        function updateComparator(id) {
+            const key = document.getElementById(`comp-select-${id}`).value;
+            const data = carDatabase[key];
+            const container = document.getElementById(`comp-specs-${id}`);
+            const img = document.getElementById(`comp-img-${id}`);
+
+            img.src = data.img;
+            img.alt = data.name;
+            
+            if (data.isFlip) {
+                img.classList.add('flip-x');
+            } else {
+                img.classList.remove('flip-x');
+            }
+
+            container.innerHTML = `
+                <div class="comp-row"><span class="comp-label">Precio Estimado</span><span class="comp-value">USD ${data.price}</span></div>
+                <div class="comp-row"><span class="comp-label">Potencia Máxima</span><span class="comp-value val-cv" data-val="${data.cv}">${data.cv} CV</span></div>
+                <div class="comp-row"><span class="comp-label">Aceleración 0-100</span><span class="comp-value val-zero" data-val="${data.zeroTo100}">${data.zeroTo100} s</span></div>
+                <div class="comp-row"><span class="comp-label">Torque Máximo</span><span class="comp-value val-torque" data-val="${data.torque}">${data.torque} Nm</span></div>
+                <div class="comp-row"><span class="comp-label">Consumo Mixto</span><span class="comp-value val-cons" data-val="${data.cons}">${data.cons} L/100km</span></div>
+                <div class="comp-row mt-3 border-0"><span class="comp-label" style="color:var(--bmw-blue); font-weight:600;">Tecnología y Confort</span></div>
+                <div class="comp-row"><span class="comp-label">Pantalla / Info</span><span class="comp-value" style="font-size: 0.85rem;">${data.screen}</span></div>
+                <div class="comp-row"><span class="comp-label">Transmisión</span><span class="comp-value" style="font-size: 0.85rem;">${data.gearbox}</span></div>
+                <div class="comp-row"><span class="comp-label">Tracción</span><span class="comp-value" style="font-size: 0.85rem;">${data.drive}</span></div>
+            `;
+
+            performComparison();
+        }
+
+        function performComparison() {
+            document.querySelectorAll('.comp-value').forEach(el => el.classList.remove('comparar-ganador'));
+
+            const metrics = [
+                { class: 'val-cv', better: 'higher' },
+                { class: 'val-zero', better: 'lower' },
+                { class: 'val-torque', better: 'higher' },
+                { class: 'val-cons', better: 'lower' }
+            ];
+
+            metrics.forEach(metric => {
+                const els = document.querySelectorAll(`.${metric.class}`);
+                if (els.length < 2) return;
+
+                const val1 = parseFloat(els[0].getAttribute('data-val'));
+                const val2 = parseFloat(els[1].getAttribute('data-val'));
+
+                if (isNaN(val1) || isNaN(val2) || val1 === val2) return;
+
+                if (metric.better === 'higher') {
+                    if (val1 > val2) els[0].classList.add('comparar-ganador');
+                    else els[1].classList.add('comparar-ganador');
+                } else {
+                    if (val1 < val2) els[0].classList.add('comparar-ganador');
+                    else els[1].classList.add('comparar-ganador');
+                }
+            });
+        }
+
+        function triggerCompare(modelKey) {
+            document.getElementById('comparador').scrollIntoView({ behavior: 'smooth' });
+            
+            setTimeout(() => {
+                const select1 = document.getElementById('comp-select-1');
+                select1.value = modelKey;
+                updateComparator(1);
+                
+                const select2 = document.getElementById('comp-select-2');
+                select2.focus(); 
+                
+                select2.classList.add('pulse-highlight');
+                setTimeout(() => select2.classList.remove('pulse-highlight'), 1500);
+            }, 600);
+        }
+
         window.onload = function() {
             updateFinanceCalc();
+            initComparator(); 
         };
     </script>
 </body>
